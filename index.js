@@ -1,6 +1,7 @@
 let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
+let maxLevel = 0;
 let click_lvl = 0;
 let reset = 0;
 
@@ -10,6 +11,7 @@ let red = new Audio("public/sounds/red.mp3");
 let yellow = new Audio("public/sounds/yellow.mp3");
 let wrong = new Audio("public/sounds/wrong.mp3");
 let buttonColours = ["red", "blue", "green", "yellow"];
+
 
 function playSound(color) {
   switch (color) {
@@ -71,9 +73,13 @@ function checkClick(index) {
     setTimeout(function () {
       $("body").removeClass("wrong-answer");
     }, 200);
+    
+    if(level > maxLevel){
+      maxLevel = level;
+      $(".maxLevel").text(maxLevel);
+    }
     level = 0;
     $(".instructions").removeClass("d-none");
-    $(".stats").addClass("d-none");
   }
 }
 
