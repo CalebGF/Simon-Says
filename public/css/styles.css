@@ -12,8 +12,9 @@ h1 {
   border: 1px solid #fff;
   border-radius: 300px;
   width: 400px;
+  height: 400px;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding-top: 5rem;
 }
 
 .red {
@@ -32,17 +33,14 @@ h1 {
   background-color: green;
 }
 
-.btn-figure {
-    height: 200px;
-    width: 200px;
-    margin-bottom: 1rem;
-}
-
 .btn-figure:first-child {
   margin-right: 1rem;
 }
 
 .btn-figure {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 1rem;
   position: relative;
   display: inline-block;
   width: 100px;
@@ -112,4 +110,33 @@ h2 {
 
 .wrong-answer {
   background-color: red;
+}
+
+@media screen and (min-width: 992px) {
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .btn-wrapper {
+    width: 600px;
+    height: 600px;
+    padding-top: 5.5rem;
+  }
+
+  .btn-figure {
+    height: 200px;
+    width: 200px;
+  }
+
+  .stats-wrapper,
+  .instructions-wrapper{
+    margin-bottom: 2rem;
+
+  }
+
+  .instructions-wrapper{
+    width: 60%;
+  }
+  
 }
