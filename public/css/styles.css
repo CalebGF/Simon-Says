@@ -1,11 +1,16 @@
 body {
   background-color: #000;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
   text-align: center;
   color: #fff;
   margin-bottom: 5rem;
+}
+
+.weiht-thin {
+  font-weight: 100;
 }
 
 .btn-wrapper {
@@ -106,6 +111,17 @@ h2 {
   width: 90%;
   padding-left: .3rem;
   text-align: justify;
+}
+
+footer {
+  border-top: 1px solid #fff;
+  color: #fff;
+  margin-top: 2rem;
+  padding: .3rem .5rem;
+}
+
+footer p {
+  margin-bottom: 0;
 }
 
 .wrong-answer {
