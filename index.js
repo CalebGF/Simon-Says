@@ -31,7 +31,7 @@ function playSound(color) {
 }
 
 function fillStats() {
-    $(".level").text(level);
+  $(".level").text(level);
 }
 
 function nextSequence() {
@@ -40,19 +40,12 @@ function nextSequence() {
     .fadeOut(100)
     .fadeIn(100);
   playSound(buttonColours[number]);
-  userClickedPattern = [];
   level += 1;
+  $("h1").text("Level " + level);
   click_lvl = 0;
   gamePattern.push(buttonColours[number]);
+  userClickedPattern = [];
   fillStats();
-}
-
-function checkClick(index) {
-  if (gamePattern[index - 1] == userClickedPattern[index - 1]) {
-    console.log("Success");
-  } else {
-    console.log("Wrong anwser");
-  }
 }
 
 $(".btn-figure").click(function () {
@@ -60,18 +53,47 @@ $(".btn-figure").click(function () {
   color = $(this).attr("name");
   playSound(color);
   userClickedPattern.push(color);
+  animateButton(color);
   checkClick(click_lvl);
-  if (click_lvl = level) {
-    setTimeout(function(){
-        nextSequence();
-      },1000);
+  if (click_lvl == level) {
+    setTimeout(function () {
+      nextSequence();
+    }, 1000);
   }
 });
 
+function checkClick(index) {
+  if (gamePattern[index - 1] != userClickedPattern[index - 1]) {
+    $("h1").text("Wrong color, press RESTART to play a new game");
+    $(".btn-start-restart").text("RESTART");
+    $("body").addClass("wrong-answer");
+    wrong.play();
+    setTimeout(function () {
+      $("body").removeClass("wrong-answer");
+    }, 200);
+    level = 0;
+    $(".instructions").removeClass("d-none");
+    $(".stats").addClass("d-none");
+  }
+}
+
+function animateButton(color) {
+  $("." + color).addClass("btn-figure-click");
+  setTimeout(function () {
+    $("." + color).removeClass("btn-figure-click");
+  }, 100);
+}
+
 $(".btn-start-reset").click(function () {
   if (reset == 0) {
+    userClickedPattern = [];
+    $(".instructions").addClass("d-none");
+    $(".stats").removeClass("d-none");
+    level = 0;
+    click_lvl = 0;
+    gamePattern = [];
     nextSequence();
-    $(this).text("Reset");
+    $(this).text("RESET");
   } /*  else {
         resetGame();
         $(this).text("Start");
