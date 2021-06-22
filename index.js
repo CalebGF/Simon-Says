@@ -79,7 +79,6 @@ function checkClick(index) {
       $(".maxLevel").text(maxLevel);
     }
     level = 0;
-    $(".instructions").removeClass("d-none");
   }
 }
 
@@ -93,7 +92,6 @@ function animateButton(color) {
 $(".btn-start-reset").click(function () {
   if (reset == 0) {
     userClickedPattern = [];
-    $(".instructions").addClass("d-none");
     $(".stats").removeClass("d-none");
     level = 0;
     click_lvl = 0;
